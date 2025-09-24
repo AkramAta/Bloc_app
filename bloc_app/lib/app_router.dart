@@ -1,3 +1,5 @@
+import 'package:bloc_app/constants/strings.dart';
+import 'package:bloc_app/presentation/screens/character_details.dart';
 import 'package:bloc_app/presentation/screens/characters_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -5,8 +7,10 @@ import 'package:flutter/widgets.dart';
 class AppRouter {
   Route? generateRoute (RouteSettings settings){
     switch (settings.name) {
-      case "/":
+      case charactersScreen:
       return MaterialPageRoute(builder: (_) => CharactersScreen());
+      case characterDetailsScreen:
+      return MaterialPageRoute(builder: (_) => CharacterDetailsScreen());
         
 
     }
