@@ -9,19 +9,13 @@ void main() {
 
 class RickAndMortyApp extends StatelessWidget {
   final AppRouter appRouter;
-  const RickAndMortyApp({
-    Key? key,
-    required this.appRouter,
-  }) : super(key: key);
-
-
+  const RickAndMortyApp({Key? key, required this.appRouter}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: appRouter.generateRoute ,
+      onGenerateRoute: appRouter.generateRoute,
     );
   }
 }
-

@@ -65,19 +65,20 @@ class Results {
   String? url;
   String? created;
 
-  Results(
-      {this.id,
-      this.name,
-      this.status,
-      this.species,
-      this.type,
-      this.gender,
-      this.origin,
-      this.location,
-      this.image,
-      this.episode,
-      this.url,
-      this.created});
+  Results({
+    this.id,
+    this.name,
+    this.status,
+    this.species,
+    this.type,
+    this.gender,
+    this.origin,
+    this.location,
+    this.image,
+    this.episode,
+    this.url,
+    this.created,
+  });
 
   Results.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -86,10 +87,12 @@ class Results {
     species = json['species'];
     type = json['type'];
     gender = json['gender'];
-    origin =
-        json['origin'] != null ? new Origin.fromJson(json['origin']) : null;
-    location =
-        json['location'] != null ? new Origin.fromJson(json['location']) : null;
+    origin = json['origin'] != null
+        ? new Origin.fromJson(json['origin'])
+        : null;
+    location = json['location'] != null
+        ? new Origin.fromJson(json['location'])
+        : null;
     image = json['image'];
     episode = json['episode'].cast<String>();
     url = json['url'];

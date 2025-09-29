@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AppRouter {
-  Route? generateRoute (RouteSettings settings){
+  Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case charactersScreen:
-      return MaterialPageRoute(builder: (_) => CharactersScreen());
+        return MaterialPageRoute(builder: (_) => CharactersScreen());
       case characterDetailsScreen:
-      return MaterialPageRoute(builder: (_) => CharacterDetailsScreen());
-        
-
+        return MaterialPageRoute(builder: (_) => CharacterDetailsScreen());
     }
   }
 }
