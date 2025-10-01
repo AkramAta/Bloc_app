@@ -6,11 +6,10 @@ class CharactersRepo {
 
   CharactersRepo(this.charactersApiServices);
 
-  Future<List<Characters>> getAllCharacters() async {
+  Future<List<Results>> getAllCharacters() async {
     final response = await charactersApiServices.getAllCharacters();
+    final results = response["results"] as List;
 
-    final results = response["results"] as List; // extract the list part
-
-    return results.map((character) => Characters.fromJson(character)).toList();
+    return results.map((character) => Results.fromJson(character)).toList();
   }
 }
