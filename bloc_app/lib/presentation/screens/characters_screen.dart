@@ -54,8 +54,9 @@ class _CharactersScreenState extends State<CharactersScreen> {
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       padding: EdgeInsets.zero,
+      itemCount: allCharacters!.length,
       itemBuilder: (ctx, index){
-        return CharacterItem();
+        return CharacterItem(character: allCharacters![index],);
       },
     );
   }
@@ -65,13 +66,45 @@ class _CharactersScreenState extends State<CharactersScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: MyColors.yellow,
-        title: Text("Ricky and Morty", style: TextStyle(color: MyColors.white)),
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+  title: Text(
+    "Rick and Morty",
+    style: TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 22,
+      letterSpacing: 1.2,
+    ),
+  ),
+  centerTitle: true,
+  flexibleSpace: Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [Colors.green.shade800, Colors.green.shade400],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
       ),
-      body: BuildBlocWidget(),
-    );
-  }
+    ),
+  ),
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+  ),
+  elevation: 6,
+  shadowColor: Colors.black45,
+),
+
+    body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/RM_page-header_background1.png"), 
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: BuildBlocWidget(), 
+    ),
+  );
+}
+
 }
